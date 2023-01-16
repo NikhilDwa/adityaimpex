@@ -1,1 +1,5 @@
 env
+.DS_Store
+myapp/db.sqlite3
+myapp/pages/migrations
+myapp/myapp/__init__.py
