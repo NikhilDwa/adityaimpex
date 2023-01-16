@@ -1,5 +1,12 @@
 env
+.env
+.idea
+*.log
+*.log.*
 .DS_Store
-myapp/db.sqlite3
-myapp/pages/migrations
-myapp/myapp/__init__.py
+db.sqlite3
+config.ini
+migrations
+__pycache__
+__init__.py
+myapp/logs/
