@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
+from utils.path_utils import PathUtils
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,8 +20,10 @@ SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
+config = PathUtils().get_configuration()
+key = config["DEFAULTS"]["secret_key"]
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'n2s7rqsun9avrk^d35(t#2!mr$!khgp&zxfz9dd5g^&v#$s_r3'
+SECRET_KEY = key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -55,7 +58,7 @@ ROOT_URLCONF = 'myapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
